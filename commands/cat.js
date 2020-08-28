@@ -5,7 +5,6 @@ const fetch = require('node-fetch');
 module.exports = {
         name: "cat",
         description: "sends a picture of a cat!",
-        usage: "!cat",
         category: "miscellaneous",
     async execute(client, message, args) {
     let msg = await message.channel.send("Generating...")
@@ -22,7 +21,7 @@ module.exports = {
         .setFooter(client.user.username.toUpperCase(), client.user.displayAvatarURL)
 
             message.channel.send(cEmbed)
-            msg.delete(); 
+            msg.delete();
         })
     }
 }

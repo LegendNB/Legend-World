@@ -12,7 +12,7 @@ module.exports = {
                 .setAuthor(member.user.tag, member.user.displayAvatarURL())
                 .setTitle("Bot Commands")
                 .addField("`Preifx`", `${client.prefixes[message.guild.id].prefixes}`)
-                .addField("`General`", "Show you some general commands.")
+                .addField("`help-general`", "Show you some general commands.")
                 .addField("`Fun`", "Show you the minigames commands.")
                 .addField("`moderation`", `Show you some moderation commands`)
                 .setColor('RANDOM')

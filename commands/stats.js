@@ -8,8 +8,7 @@ require('moment-duration-format');
 module.exports = {
     name: 'stats',
    async execute(client, message, args) {
-    if(message.author.id!=='713290150750453832')
-      return message.channel.send(`${message.author.username}: ${client.emojis.cache.get(`747467037533536329`)}`)
+
   var m = await message.channel.send(`Please wait...`);
 
   var osType = await os.type();
@@ -56,7 +55,7 @@ module.exports = {
         //ITS HARD bet now show
         
     }, 3000)
-       
+    
 });
 }
         }

@@ -3,10 +3,8 @@ const seedrandom = require('seedrandom');
 const sortArray = require('sort-array');
 const fs = require('fs');
 module.exports = {
-    name: 'general',
-    execute(client, message, args) {
-        if(args[0])
-        return;
+    name: 'help-general',
+    async execute(client, message, args) {
         let userArray = message.content.split(" ");
         let userArgs = userArray.slice(1);
         let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0]) || message.member;
@@ -24,6 +22,6 @@ module.exports = {
             dynamic: true,
             size: 256
             })}`);
-        message.channel.send(general);
-    }
+        message.channel.send(general)
+}
 }

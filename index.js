@@ -4,7 +4,7 @@ require('dotenv').config()
 const client = new Discord.Client();
 client.prefixes=require('./prefixes.json');
 client.commands = new Discord.Collection();
-client.snipe = new Discord.Collection();
+client.snipes = new Discord.Collection();
 client.afk = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const clent = new Discord.Client({
@@ -13,9 +13,9 @@ const clent = new Discord.Client({
   });
 
 client.once('ready', () => {
-    console.log(`${client.user.username} is online on ${client.guilds.cache.size} servers!`);
+    console.log(`Legend World is online on ${client.guilds.cache.size.toLocaleString()} servers!`);
     client.user.setActivity(`${client.guilds.cache.size} servers | ${prefix}invite to add me`, { type: 'PLAYING' });
-});
+    });
 
 const defprefix=process.env.PREFIX
 let prefix=defprefix
@@ -50,6 +50,7 @@ client.on('message', message => {
         return;
 
     }
+
     client.afk = new Map();
     if (message.content.includes(message.mentions.users.first())) {
         client.afk.forEach(key => {
