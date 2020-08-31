@@ -24,8 +24,11 @@
     "random-puppy": "^1.1.0",
     "redis": "^3.0.2",
     "seedrandom": "^3.0.5",
+    "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
     "sort-array": "^4.1.1",
-    "ytdl-core": "^3.2.1"
+    "soundcloud-downloader": "^0.1.5",
+    "ytdl-core": "^3.2.1",
+    "ytdl-core-discord": "^1.2.1"
   }
 }
