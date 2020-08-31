@@ -32,7 +32,7 @@ module.exports = {
             .setAuthor(member.user.tag, member.user.displayAvatarURL())
             .setTitle('Moderation Commands')
             .setDescription([
-                '`ban`,`prefix`,`kick`',
+                '`ban` , `prefix` , `kick`',
                 `\`${client.prefixes[message.guild.id].prefixes}help <command>\``
             ].join('\n\n'))
             .setColor('RANDOM')
@@ -51,7 +51,7 @@ module.exports = {
         .setTitle(`General Commands`)
         .setColor('RANDOM')
         .setDescription([
-        "`support`,`whois`,`stats`,`serverinfo`",
+        "`support` , `whois` , `stats` , `serverinfo`",
     `\`${client.prefixes[message.guild.id].prefixes}help <command>\``
         ].join('\n\n'))
         .setFooter(`Made by ${Desmond}`, `${client.users.cache.get('713290150750453832').avatarURL({
@@ -67,7 +67,7 @@ module.exports = {
             .setTitle('Fun/minigames Commands')
             .setColor("RANDOM")
             .setDescription([
-                '`rps challenge`,`8ball`,`meme`,`ping`,`cat`, `ping`',
+                '`rps challenge` , `8ball` , `meme` , `ping` , `cat` , `ping`',
                 `\`${client.prefixes[message.guild.id].prefixes}help <command>\``
         ].join('\n\n'))
         .setFooter(`Made by ${Desmond}`, `${client.users.cache.get('713290150750453832').avatarURL({
