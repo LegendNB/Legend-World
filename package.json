@@ -12,9 +12,11 @@
     "common-tags": "^1.8.0",
     "cpu-stat": "^2.0.1",
     "custom-discord-jokes": "^1.0.3",
+    "date-and-time": "^0.14.1",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "erela.js": "^1.1.8",
+    "hastebin": "^0.2.1",
     "moment": "^2.27.0",
     "moment-duration-format": "^2.3.2",
     "parse-ms": "^2.1.0",
@@ -24,8 +26,11 @@
     "random-puppy": "^1.1.0",
     "redis": "^3.0.2",
     "seedrandom": "^3.0.5",
+    "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
     "sort-array": "^4.1.1",
-    "ytdl-core": "^3.2.1"
+    "soundcloud-downloader": "^0.1.5",
+    "ytdl-core": "^3.2.1",
+    "ytdl-core-discord": "^1.2.1"
   }
 }
