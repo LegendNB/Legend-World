@@ -5,6 +5,7 @@ const client = new Discord.Client();
 client.prefixes=require('./prefixes.json');
 client.commands = new Discord.Collection();
 client.snipes = new Discord.Collection();
+client.aliases = new Discord.Collection();
 client.afk = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const clent = new Discord.Client({
@@ -20,9 +21,10 @@ client.once('ready', () => {
 const defprefix=process.env.PREFIX
 let prefix=defprefix
 const token=process.env.CLIENT_TOKEN
+
 for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.name, command);
+  const command = require(`./commands/${file}`);
+  client.commands.set(command.name, command);
 }
 
 client.on('message', message => {
