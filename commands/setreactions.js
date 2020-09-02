@@ -5,22 +5,22 @@ const randomstring = require("randomstring");
 
 module.exports = {
 	name: 'setreactions',
-	execute(client, message, args) {
-    if(!message.content.startsWith('ticket.'))return;  
+	async execute(client, message, args) {
+    if(!message.content.startsWith('ticket'))return;  
 
-    let permcheck = new Discord.RichEmbed()
+    let permcheck = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription(`You Don't Have Permission To Do This`)
 
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(permcheck)
 
-    let argcheck = new Discord.RichEmbed()
+    let argcheck = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription(`Choose a Number From 1 - 5 To Set a Reason For`)
 
     if(!args[0]) return message.channel.send(argcheck)
 
-  let permembed = new Discord.RichEmbed()
+  let permembed = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`Error. Give Me The Permission: Manage Channels`)
 
@@ -28,7 +28,7 @@ module.exports = {
 
   if (args[0].toLowerCase() == '1') {
 
-    let filterembed = new Discord.RichEmbed()
+    let filterembed = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription('Input a Ticket Reason')
 
@@ -36,7 +36,7 @@ module.exports = {
 
         db.set(`${message.guild.id}-topic1`, args.join(" ").slice(2))
         
-        let completeembed = new Discord.RichEmbed()
+        let completeembed = new Discord.MessageEmbed()
         .setColor('#e64b0e')
         .setDescription(`\`${args.join(" ").slice(2)}\` Has Been Set As Reason 1`)
 
@@ -46,7 +46,7 @@ module.exports = {
 
 } else if(args[0].toLowerCase() == '2') {
 
-    let filterembed = new Discord.RichEmbed()
+    let filterembed = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription('Input a Ticket Reason')
 
@@ -54,7 +54,7 @@ module.exports = {
 
         db.set(`${message.guild.id}-topic2`, args.join(" ").slice(2))
         
-        let completeembed = new Discord.RichEmbed()
+        let completeembed = new Discord.MessageEmbed()
         .setColor('#e64b0e')
         .setDescription(`\`${args.join(" ").slice(2)}\` Has Been Set As Reason 2`)
 
@@ -63,7 +63,7 @@ module.exports = {
 
     } else if(args[0].toLowerCase() == '3') {
 
-        let filterembed = new Discord.RichEmbed()
+        let filterembed = new Discord.MessageEmbed()
         .setColor('#e64b0e')
         .setDescription('Input a Ticket Reason')
     
@@ -71,16 +71,16 @@ module.exports = {
     
             db.set(`${message.guild.id}-topic3`, args.join(" ").slice(2))
             
-            let completeembed = new Discord.RichEmbed()
+            let completeembed = new Discord.MessageEmbed()
             .setColor('#e64b0e')
             .setDescription(`\`${args.join(" ").slice(2)}\` Has Been Set As Reason 3`)
     
     
-            message.channel.send(completeembed)
+            message.channel.send(completeembed) 
 
     } else if(args[0].toLowerCase() == '4') {
 
-        let filterembed = new Discord.RichEmbed()
+        let filterembed = new Discord.MessageEmbed()
         .setColor('#e64b0e')
         .setDescription('Input a Ticket Reason')
     
@@ -88,7 +88,7 @@ module.exports = {
     
             db.set(`${message.guild.id}-topic4`, args.join(" ").slice(2))
             
-            let completeembed = new Discord.RichEmbed()
+            let completeembed = new Discord.MessageEmbed()
             .setColor('#e64b0e')
             .setDescription(`\`${args.join(" ").slice(2)}\` Has Been Set As Reason 4`)
     
@@ -97,7 +97,7 @@ module.exports = {
     
         } else if(args[0].toLowerCase() == '5') {
 
-            let filterembed = new Discord.RichEmbed()
+            let filterembed = new Discord.MessageEmbed()
             .setColor('#e64b0e')
             .setDescription('Input a Ticket Reason')
         
@@ -105,7 +105,7 @@ module.exports = {
         
                 db.set(`${message.guild.id}-topic5`, args.join(" ").slice(2))
                 
-                let completeembed = new Discord.RichEmbed()
+                let completeembed = new Discord.MessageEmbed()
                 .setColor('#e64b0e')
                 .setDescription(`\`${args.join(" ").slice(2)}\` Has Been Set As Reason 5`)
         

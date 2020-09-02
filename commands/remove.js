@@ -7,18 +7,18 @@ module.exports = {
 	execute(client, message, args) {
     if(!message.content.startsWith('ticket.'))return;  
 
-    let notallowed = new Discord.RichEmbed()
+    let notallowed = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription(`You Need The **Support Team** Role To Remove Users From Tickets`)
 
     if(!message.member.roles.find(r => r.name == 'Support Team')) return message.channel.send(notallowed)
 
-  let channelsend = new Discord.RichEmbed()
+  let channelsend = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setTitle(`Removed User`)
   .setDescription(`${message.author} Has Removed ${message.mentions.members.first()} From This Ticket`)
 
-  let categorysend = new Discord.RichEmbed()
+  let categorysend = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`This Server Hasn't Been Setup | Contact The Server Owner`)
 

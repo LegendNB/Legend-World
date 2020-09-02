@@ -2,21 +2,23 @@ const Discord = require('discord.js');
 const db = require('quick.db');
 const date = require('date-and-time')
 const hastebin = require('hastebin')
+module.exports = {
+name: 'timeout',
+async execute(client, message, args) {
 
-module.exports.run = async (bot, message, args) => {
-    if(!message.content.startsWith('ticket.'))return;  
+    if(!message.content.startsWith('ticket'))return;  
 
-    let notallowed = new Discord.RichEmbed()
+    let notallowed = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription(`You Need The **Support Team** Role To Start Ticket Timeouts`)
 
     if(!message.member.roles.find(r => r.name == 'Support Team')) return message.channel.send(notallowed)
 
-  let cancelembed = new Discord.RichEmbed()
+  let cancelembed = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`Timeout Stopped`)
 
-  let input = new Discord.RichEmbed()
+  let input = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`Timeout Started\n\nThis Ticket Will Close In 15 Minutes If No One Reacts To This Message`)
 
@@ -57,11 +59,11 @@ module.exports.run = async (bot, message, args) => {
   let channeldelete = message.guild.channels.get(ticketchannel)
     let category = message.guild.channels.find(c => c.name == "Closed Tickets" && c.type == "category")
 
-    let closedticket = new Discord.RichEmbed()
+    let closedticket = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription(`Ticket Closed & Moved To Closed Tickets. This Ticket Will Be Deleted In 10 Minutes\n\n[Ticket Transcript](${data}) Or Run \`ticket.last\` To Get Additional Info`)
 
-    let logchannelembed = new Discord.RichEmbed()
+    let logchannelembed = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setTitle(`Ticket Closed`)
     .setDescription(`Closed By: ${message.author}\nTicket Number: \`${ticketcount}\`\nClose Reason: \`Timeout\`\nTranscript: [Here](${data})`)
@@ -93,8 +95,4 @@ module.exports.run = async (bot, message, args) => {
   }
       )}
   )}
-
-module.exports.help = {
-    name:"timeout",
-    aliases: ["to"]
   }

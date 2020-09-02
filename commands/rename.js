@@ -7,7 +7,7 @@ module.exports = {
 	execute(client, message, args) {
     if(!message.content.startsWith('ticket.'))return;  
 
-    let notallowed = new Discord.RichEmbed()
+    let notallowed = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription(`You Need The **Support Team** Role To Rename Tickets`)
 
@@ -15,7 +15,7 @@ module.exports = {
 
     let numbers = db.fetch(`${message.guild.id}_${message.author.id}-ticketnumber`)
 
-    let authorsend2 = new Discord.RichEmbed()
+    let authorsend2 = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription(`Input something to rename the ticket to`)
 
@@ -27,7 +27,7 @@ module.exports = {
 
     db.set(`${message.guild.id}_${message.author.id}-channelID`, message.channel.id)
 
-  let embed = new Discord.RichEmbed()
+  let embed = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`Ticket renamed to ${rename}`)
     message.channel.send(embed)

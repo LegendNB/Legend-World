@@ -6,18 +6,18 @@ const hastebin = require('hastebin')
 
 module.exports = {
 	name: 'forceclose',
-	execute(client, message, args) {
-    if(!message.content.startsWith('ticket.'))return;  
+	async execute(client, message, args) {
+    if(!message.content.startsWith('ticket'))return;  
 
     let channel = message.channel;
 
-  let whoopsembed = new Discord.RichEmbed()
+  let whoopsembed = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`Ticket Is Already Closed`)
 
   if(channel.parent == message.guild.channels.find(c => c.name == "Closed Tickets" && c.type == "category")) return message.channel.send(whoopsembed)
 
-    let notallowed = new Discord.RichEmbed()
+    let notallowed = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription(`You Need The **Support Team** Role To Force Close Tickets`)
 

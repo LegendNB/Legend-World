@@ -4,16 +4,16 @@ const rs = require('randomstring');
 
 module.exports = {
 	name: 'setup',
-	execute(client, message, args) {
-    if(!message.content.startsWith('ticket.'))return;  
+	async execute(client, message, args) {
+    if(!message.content.startsWith('ticket'))return;  
 
-    let permcheck = new Discord.RichEmbed()
+    let permcheck = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription(`You Don't Have Permission To Do This`)
 
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(permcheck)
 
-    let setupcheck2 = new Discord.RichEmbed()
+    let setupcheck2 = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setDescription(`This Server Has Already Been Setup`)
 
@@ -26,7 +26,7 @@ module.exports = {
     .then(role => console.log(`Created new role with name ${role.name} and color ${role.color}`))
     .catch(console.error)
 
-    let categorycreate = new Discord.RichEmbed()
+    let categorycreate = new Discord.MessagehEmbed()
     .setColor('#e64b0e')
     .setTitle(`Server Setup Successfully`)
     .setDescription(`Support Team Role: **Support Team** | Open Ticket Category: **Tickets** | Closed Ticket Category: **Closed Tickets**`)

@@ -4,12 +4,12 @@ const date = require('date-and-time')
 const hastebin = require('hastebin')
 module.exports = {
 	name: 'close',
-	execute(client, message, args) {
-    if(!message.content.startsWith('ticket.'))return;  
+	async execute(client, message, args) {
+    if(!message.content.startsWith('ticket'))return;  
 
   let channel = message.channel;
 
-  let whoopsembed = new Discord.RichEmbed()
+  let whoopsembed = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`Ticket Is Already Closed`)
 
@@ -50,11 +50,11 @@ module.exports = {
           
           db.set(`${message.guild.id}_${user.id}-transcript`, data)
           
-          let authorsend = new Discord.RichEmbed()
+          let authorsend = new Discord.MessageEmbed()
           .setColor('#e64b0e')
           .setDescription(`[Message Transcript](${data}) Of Your Ticket In ${message.guild.name}`)
 
-          let closedticket = new Discord.RichEmbed()
+          let closedticket = new Discord.MessageEmbed()
           .setColor('#e64b0e')
           .setDescription(`Ticket Closed & Moved To Closed Tickets. This Ticket Will Be Deleted In 10 Minutes\n\n[Ticket Transcript](${data}) Or Run \`ticket.last\` To Get Additional Info`)
 
@@ -65,7 +65,7 @@ module.exports = {
     if(category) channeldelete.setParent(category.id) 
 
 
-    let logchannelembed = new Discord.RichEmbed()
+    let logchannelembed = new Discord.MessageEmbed()
     .setColor('#e64b0e')
     .setTitle(`Ticket Closed`)
     .setDescription(`Closed By: ${message.author}\nTicket Number: \`${ticketcount}\`\nClose Reason: \`${reasonfetch}\`\nTranscript: [Here](${data})`)

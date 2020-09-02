@@ -5,10 +5,10 @@ const randomstring = require("randomstring");
 
 module.exports = {
 	name: 'create',
-	execute(client, message, args) {
-    if(!message.content.startsWith('ticket.'))return;  
+	async execute(client, message, args) {
+    if(!message.content.startsWith('ticket'))return;  
 
-  let permembed = new Discord.RichEmbed()
+  let permembed = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`Error. Give Me The Permission: Manage Channels`)
 
@@ -23,7 +23,7 @@ module.exports = {
   if (daily !== null && timeout - (Date.now() - daily) > 0) {
     let time = ms(timeout - (Date.now() - daily));
   
-    let timeEmbed = new Discord.RichEmbed()
+    let timeEmbed = new Discord.MessageEmbed()
     .setColor("#e64b0e")
     .setDescription(`You have a cooldown of ${time.minutes}m ${time.seconds}s until you can open another ticket`);
     message.channel.send(timeEmbed)
@@ -33,7 +33,7 @@ module.exports = {
     charset: 'numeric'
   });
 
-  let authorsend2 = new Discord.RichEmbed()
+  let authorsend2 = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`You already have a ticket open`)
 
@@ -60,69 +60,69 @@ module.exports = {
 
   let ticketcount = db.fetch(`${message.guild.id}-ticketcount`)
 
-  let channelsend1 = new Discord.RichEmbed()
+  let channelsend1 = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setTitle(`Support Ticket: ${ticketcount}`)
   .setDescription(`\n\nHello ${message.author},\n\nThank you for making a ticket. The support team will help you as soon as they can.\n\n**Ticket Catergory:** ${topic1}`)
 
-  let channelsend2 = new Discord.RichEmbed()
+  let channelsend2 = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setTitle(`Support Ticket: ${ticketcount}`)
   .setDescription(`\n\nHello ${message.author},\n\nThank you for making a ticket. The support team will help you as soon as they can.\n\n**Ticket Catergory:** ${topic2}`)
 
-  let channelsend3 = new Discord.RichEmbed()
+  let channelsend3 = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setTitle(`Support Ticket: ${ticketcount}`)
   .setDescription(`\n\nHello ${message.author},\n\nThank you for making a ticket. The support team will help you as soon as they can.\n\n**Ticket Catergory:** ${topic3}`)
 
-  let channelsend4 = new Discord.RichEmbed()
+  let channelsend4 = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setTitle(`Support Ticket: ${ticketcount}`)
   .setDescription(`\n\nHello ${message.author},\n\nThank you for making a ticket. The support team will help you as soon as they can.\n\n**Ticket Catergory:** ${topic4}`)
 
-  let channelsend5 = new Discord.RichEmbed()
+  let channelsend5 = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setTitle(`Support Ticket: ${ticketcount}`)
   .setDescription(`\n\nHello ${message.author},\n\nThank you for making a ticket. The support team will help you as soon as they can.\n\n**Ticket Catergory:** ${topic5}`)
 
-  let categorysend = new Discord.RichEmbed()
+  let categorysend = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`This Server Hasn't Been Setup | Contact The Server Owner`)
 
-  let cancelembed = new Discord.RichEmbed()
+  let cancelembed = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`Ticket Cancelled`)
 
-  let timeoutembed = new Discord.RichEmbed()
+  let timeoutembed = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`Time expired`)
 
-  let input = new Discord.RichEmbed()
+  let input = new Discord.MessageEmbed()
   .setColor('#e64b0e')
   .setDescription(`Please choose from one of the following ticket topics: \n\n1: ${topic1}\n2: ${topic2}\n3: ${topic3}\n4: ${topic4}\n5: ${topic5}`)
   .setFooter(`This will expire in 10 seconds then you will be put on a 5 minute cooldown`)
 
-  let logchannelembed1 = new Discord.RichEmbed()
+  let logchannelembed1 = new Discord.MessageEmbed()
   .setColor('#52d411')
   .setTitle(`Ticket Created`)
   .setDescription(`Opened By: ${message.author}\nTicket Number: \`${ticketcount}\`\nTicket Reason: \`${topic1}\``)
 
-  let logchannelembed2 = new Discord.RichEmbed()
+  let logchannelembed2 = new Discord.MessageEmbed()
   .setColor('#52d411')
   .setTitle(`Ticket Created`)
   .setDescription(`Opened By: ${message.author}\nTicket Number: \`${ticketcount}\`\nTicket Reason: \`${topic2}\``)
 
-  let logchannelembed3 = new Discord.RichEmbed()
+  let logchannelembed3 = new Discord.MessageEmbed()
   .setColor('#52d411')
   .setTitle(`Ticket Created`)
   .setDescription(`Opened By: ${message.author}\nTicket Number: \`${ticketcount}\`\nTicket Reason: \`${topic3}\``)
 
-  let logchannelembed4 = new Discord.RichEmbed()
+  let logchannelembed4 = new Discord.MessageEmbed()
   .setColor('#52d411')
   .setTitle(`Ticket Created`)
   .setDescription(`Opened By: ${message.author}\nTicket Number: \`${ticketcount}\`\nTicket Reason: \`${topic4}\``)
 
-  let logchannelembed5 = new Discord.RichEmbed()
+  let logchannelembed5 = new Discord.MessageEmbed()
   .setColor('#52d411')
   .setTitle(`Ticket Created`)
   .setDescription(`Opened By: ${message.author}\nTicket Number: \`${ticketcount}\`\nTicket Reason: \`${topic5}\``)
@@ -194,7 +194,7 @@ module.exports = {
       chan.setTopic(`Support Ticket ${numbers}`)
       db.set(`${message.guild.id}_${message.author.id}-channelID`, chan.id)
     
-      let authorsend = new Discord.RichEmbed()
+      let authorsend = new Discord.MessageEmbed()
       .setColor('#e64b0e')
       .setDescription(`Ticket Created, #${chan.name}`)
 
@@ -225,7 +225,7 @@ module.exports = {
       chan.setTopic(`Support Ticket ${numbers}`)
       db.set(`${message.guild.id}_${message.author.id}-channelID`, chan.id)
     
-      let authorsend = new Discord.RichEmbed()
+      let authorsend = new Discord.MessageEmbed()
       .setColor('#e64b0e')
       .setDescription(`Ticket Created, #${chan.name}`)
 
@@ -256,7 +256,7 @@ module.exports = {
         chan.setTopic(`Support Ticket ${numbers}`)
         db.set(`${message.guild.id}_${message.author.id}-channelID`, chan.id)
       
-        let authorsend = new Discord.RichEmbed()
+        let authorsend = new Discord.MessageEmbed()
         .setColor('#e64b0e')
         .setDescription(`Ticket Created, #${chan.name}`)
   
@@ -287,7 +287,7 @@ module.exports = {
           chan.setTopic(`Support Ticket ${numbers}`)
           db.set(`${message.guild.id}_${message.author.id}-channelID`, chan.id)
         
-          let authorsend = new Discord.RichEmbed()
+          let authorsend = new Discord.MessageEmbed()
           .setColor('#e64b0e')
           .setDescription(`Ticket Created, #${chan.name}`)
     
